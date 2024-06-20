@@ -1,9 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/custom_text_fields_with_error.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../../../login/screens/login.dart';
 
 class SignUpMobile extends StatefulWidget {
   const SignUpMobile({super.key});
@@ -47,7 +49,7 @@ class _SignUpMobileState extends State<SignUpMobile> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 20,
+                height: 10,
               ),
               const Text(
                 "Sign Up",
@@ -137,11 +139,48 @@ class _SignUpMobileState extends State<SignUpMobile> {
                     _updateValidation();
                   });
                 },
+                title: 'Agree with ',
+                subTitle: 'Terms & Conditions?',
+                shape: const CircleBorder(),
               ),
               ElevatedButton(
                 onPressed: _onSignUp,
                 child: const Text("Sign Up"),
               ),
+              const SizedBox(height: 20),
+              const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),
+              const SizedBox(height: 20),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                      onTap: (){},
+                      child: Image.asset(Assets.google.path, width: 30, height: 30,)),
+                  const SizedBox(width: 18,),
+                  GestureDetector(
+                      onTap: (){},
+                      child: Image.asset(Assets.facebook.path, height: 30, width: 30,)),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Center(
+                child: RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                        style:
+                        const TextStyle(color: Colors.black, fontSize: 16),
+                        children: [
+                          const TextSpan(text: "Already have an account? "),
+                          TextSpan(
+                            text: "Login",
+                            style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                            },
+                          ),
+                        ])),
+              )
             ],
           ),
         ),

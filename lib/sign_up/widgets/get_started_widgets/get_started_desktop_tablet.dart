@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/sign_up.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../../../login/screens/login.dart';
 
 class GetStartedDesktopTablet extends StatelessWidget {
   const GetStartedDesktopTablet({super.key});
@@ -67,8 +68,10 @@ class GetStartedDesktopTablet extends StatelessWidget {
                           const TextSpan(text: "Already have an account? "),
                           TextSpan(
                             text: "Login",
-                            style: const TextStyle(color: Colors.red),
-                            recognizer: TapGestureRecognizer()..onTap = () {},
+                            style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                            recognizer: TapGestureRecognizer()..onTap = () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                            },
                           ),
                         ]))
               ],

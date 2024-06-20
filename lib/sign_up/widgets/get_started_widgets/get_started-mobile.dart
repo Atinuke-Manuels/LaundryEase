@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import '../../../gen/assets.gen.dart';
+import '../../../login/screens/login.dart';
 import '../../screens/sign_up.dart';
 
 class GetStartedMobile extends StatelessWidget {
@@ -83,8 +84,10 @@ class GetStartedMobile extends StatelessWidget {
                       const TextSpan(text: "Already have an account? "),
                       TextSpan(
                         text: "Login",
-                        style: const TextStyle(color: Colors.red),
-                        recognizer: TapGestureRecognizer()..onTap = () {},
+                        style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()..onTap = () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
+                        },
                       ),
                     ]))
               ],
