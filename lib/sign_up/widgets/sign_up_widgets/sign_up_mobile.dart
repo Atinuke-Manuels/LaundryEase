@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
+import 'package:laundry_ease_upgrade/sign_up/screens/email_verification.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/custom_text_fields_with_error.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
@@ -163,7 +163,7 @@ class _SignUpMobileState extends State<SignUpMobile> {
                       child: Image.asset(Assets.facebook.path, height: 30, width: 30,)),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 80),
               Center(
                 child: RichText(
                     textAlign: TextAlign.center,
@@ -195,7 +195,7 @@ class _SignUpMobileState extends State<SignUpMobile> {
         context,
         MaterialPageRoute(
             builder: (context) =>
-                const GetStarted()), // Replace `NextPage` with your actual next page
+                const EmailVerification()), // Replace `NextPage` with your actual next page
       );
     } else {
       // Display an error message

@@ -33,6 +33,7 @@ class _CustomTextFieldWithErrorState extends State<CustomTextFieldWithError> {
   final RegExp _nameRegex = RegExp(r'^[a-zA-Z\s\-]{3,30}$');
   final RegExp _emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
   final RegExp _passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$');
+  final RegExp _streetAddressRegex = RegExp(r'^[a-zA-Z0-9\s,.\-#]{10,50}$');
 
   TextEditingController? _internalController;
   String? _errorText;
@@ -74,6 +75,9 @@ class _CustomTextFieldWithErrorState extends State<CustomTextFieldWithError> {
       switch (widget.keyboardType) {
         case TextInputType.emailAddress:
           if (!_emailRegex.hasMatch(value)) error = 'Invalid email address';
+          break;
+        case TextInputType.streetAddress:
+          if (!_streetAddressRegex.hasMatch(value)) error = 'Enter your full office address at least 10 characters';
           break;
         case TextInputType.visiblePassword:
           if (widget.confirmController == null) {

@@ -1,22 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/email_verification.dart';
-import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
-import 'custom_text_fields_with_error.dart';
+import '../sign_up_widgets/custom_text_fields_with_error.dart';
+import '../sign_up_widgets/terms_and_conditions_checkbox.dart';
 
-class SignUpDesktopTablet extends StatefulWidget {
-  const SignUpDesktopTablet({super.key});
+class VendorSignUpMobile extends StatefulWidget {
+  const VendorSignUpMobile({super.key});
 
   @override
-  State<SignUpDesktopTablet> createState() => _SignUpDesktopTabletState();
+  State<VendorSignUpMobile> createState() => _VendorSignUpMobileState();
 }
 
-class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
+class _VendorSignUpMobileState extends State<VendorSignUpMobile> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailAddressController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _confirmPasswordController =
   TextEditingController();
@@ -25,6 +26,7 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
   bool _isChecked = false;
   bool _nameValid = false;
   bool _emailAddressValid = false;
+  bool _locationValid = false;
   bool _passwordValid = false;
   bool _confirmPasswordValid = false;
 
@@ -33,6 +35,7 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
       _isValid = _isChecked &&
           _nameValid &&
           _emailAddressValid &&
+          _locationValid &&
           _passwordValid &&
           _confirmPasswordValid;
     });
@@ -43,34 +46,38 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 46, vertical: 10),
+          padding: const EdgeInsets.all(16),
           reverse: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(
-                height: 60,
+                height: 10,
               ),
               const Text(
                 "Sign Up",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
                 textAlign: TextAlign.left,
               ),
-              const SizedBox(height: 30,),
+              const SizedBox(
+                height: 30,
+              ),
               Center(
-                child:
-                Container(
-                  width: 120,
-                  height: 120,
-                  padding: const EdgeInsets.all(20),
+                child: Container(
+                  width: 80,
+                  height: 80,
+                  padding: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(120),
+                    borderRadius: BorderRadius.circular(80),
                   ),
                   child: Image.asset(
                     Assets.getStarted.path,
-                    width:  120,
-                    height: 120,
+                    width: 80,
+                    height: 80,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -96,6 +103,18 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
                 onValidationChanged: (isValid) {
                   setState(() {
                     _emailAddressValid = isValid;
+                    _updateValidation();
+                  });
+                },
+              ),
+              CustomTextFieldWithError(
+                title: "Location",
+                hintText: "Enter your office address",
+                keyboardType: TextInputType.streetAddress,
+                controller: _locationController,
+                onValidationChanged: (isValid) {
+                  setState(() {
+                    _locationValid = isValid;
                     _updateValidation();
                   });
                 },
@@ -129,15 +148,15 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
                 height: MediaQuery.of(context).size.height * 0.01,
               ),
               TermsAndConditionsCheckbox(
-                title: 'Agree with ',
-                subTitle: 'Terms & Conditions?',
-                shape: const CircleBorder(),
                 onChanged: (isChecked) {
                   setState(() {
                     _isChecked = isChecked;
                     _updateValidation();
                   });
                 },
+                title: 'Agree with ',
+                subTitle: 'Terms & Conditions?',
+                shape: const CircleBorder(),
               ),
               ElevatedButton(
                 onPressed: _onSignUp,
@@ -203,3 +222,4 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
     }
   }
 }
+

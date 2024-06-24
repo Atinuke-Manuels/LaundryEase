@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/sign_up/screens/vendor_sign_up.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
@@ -70,11 +71,11 @@ class GetStartedMobile extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignUp()));
+                              builder: (context) => const VendorSignUp()));
                     },
                     child: const Text("Laundry Professional")),
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 RichText(
                     text: TextSpan(

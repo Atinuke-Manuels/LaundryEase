@@ -1,30 +1,31 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/email_verification.dart';
-import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
-import 'custom_text_fields_with_error.dart';
+import '../sign_up_widgets/custom_text_fields_with_error.dart';
+import '../sign_up_widgets/terms_and_conditions_checkbox.dart';
 
-class SignUpDesktopTablet extends StatefulWidget {
-  const SignUpDesktopTablet({super.key});
+class VendorSignUpDesktopTablet extends StatefulWidget {
+  const VendorSignUpDesktopTablet({super.key});
 
   @override
-  State<SignUpDesktopTablet> createState() => _SignUpDesktopTabletState();
+  State<VendorSignUpDesktopTablet> createState() => _VendorSignUpDesktopTabletState();
 }
 
-class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
+class _VendorSignUpDesktopTabletState extends State<VendorSignUpDesktopTablet> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailAddressController = TextEditingController();
+  final TextEditingController _locationController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _confirmPasswordController =
-  TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   bool _isValid = false;
   bool _isChecked = false;
   bool _nameValid = false;
   bool _emailAddressValid = false;
+  bool _locationValid = false;
   bool _passwordValid = false;
   bool _confirmPasswordValid = false;
 
@@ -33,6 +34,7 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
       _isValid = _isChecked &&
           _nameValid &&
           _emailAddressValid &&
+          _locationValid &&
           _passwordValid &&
           _confirmPasswordValid;
     });
@@ -96,6 +98,18 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
                 onValidationChanged: (isValid) {
                   setState(() {
                     _emailAddressValid = isValid;
+                    _updateValidation();
+                  });
+                },
+              ),
+              CustomTextFieldWithError(
+                title: "Location",
+                hintText: "Enter your office address",
+                keyboardType: TextInputType.streetAddress,
+                controller: _locationController,
+                onValidationChanged: (isValid) {
+                  setState(() {
+                    _locationValid = isValid;
                     _updateValidation();
                   });
                 },
