@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
+
 
 import 'features/onboarddingFirstSet/onboarding.dart';
 import 'features/onboarddingFirstSet/onboarding1.dart';
@@ -14,14 +16,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Laundry Ease',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const onboarding(),
+      home: const GetStarted(),
     );
   }
 }
+
