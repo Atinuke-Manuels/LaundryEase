@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
 
 
+import 'features/onboarddingFirstSet/onboarding.dart';
+import 'features/onboarddingFirstSet/onboarding1.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -23,5 +26,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 
