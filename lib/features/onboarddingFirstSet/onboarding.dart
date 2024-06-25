@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../sign_up/screens/get_started.dart';
 import 'onboarding1.dart';
 import 'onboarding2.dart';
 import 'onboarding3.dart';
@@ -127,7 +128,10 @@ class _onboardingState extends State<onboarding> {
                             Text("Connect with reliable laundry professionals near you"),
                             SizedBox(height:MediaQuery.of(context).size.height * 0.04),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) => GetStarted()));
+                              },
                               child: Text("Next"),
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue,
