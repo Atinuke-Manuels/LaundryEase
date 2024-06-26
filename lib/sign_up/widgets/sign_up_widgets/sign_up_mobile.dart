@@ -4,6 +4,7 @@ import 'package:laundry_ease_upgrade/sign_up/screens/email_verification.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/custom_text_fields_with_error.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
+import '../../../common/long_custom_button.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
 
@@ -130,7 +131,7 @@ class _SignUpMobileState extends State<SignUpMobile> {
                 },
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.01,
+                height: MediaQuery.of(context).size.height * 0.02,
               ),
               TermsAndConditionsCheckbox(
                 onChanged: (isChecked) {
@@ -143,9 +144,12 @@ class _SignUpMobileState extends State<SignUpMobile> {
                 subTitle: 'Terms & Conditions?',
                 shape: const CircleBorder(),
               ),
-              ElevatedButton(
+              const SizedBox(height: 30),
+              LongCustomButton(
+                title: "Sign Up",
+                backgroundColor: const Color(0xFF0F26A6),
+                foregroundColor: Colors.white,
                 onPressed: _onSignUp,
-                child: const Text("Sign Up"),
               ),
               const SizedBox(height: 20),
               const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),

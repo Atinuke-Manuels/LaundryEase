@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../common/long_custom_button.dart';
 import '../../../gen/assets.gen.dart';
 
 
@@ -36,7 +37,12 @@ class _EmailVerificationMobileState extends State<EmailVerificationMobile> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.09,),
                 const Text("Didn't receive the mail? check your spasm folder or", style: TextStyle(fontSize: 12.0, height: 1.5),),
-                ElevatedButton(onPressed: (){}, child: const Text("Resend Email")),
+                LongCustomButton(
+                  title: "Resend Email",
+                  backgroundColor: const Color(0xFF0F26A6),
+                  foregroundColor: Colors.white,
+                  onPressed: () {},
+                ),
               ],
             ),
           ),

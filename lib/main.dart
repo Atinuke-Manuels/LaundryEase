@@ -6,6 +6,9 @@ import 'package:laundry_ease_upgrade/password_sceens/password/reset_password_suc
 import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
 
 
+import 'features/onboarddingFirstSet/onboarding.dart';
+import 'features/onboarddingFirstSet/onboarding1.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -24,13 +27,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const GetStarted(),
-      //home: const ForgotPassword(),
-      //home: const EnterOtp(),
-      //home: const ResetPassword(),
-      //home: const ResetPasswordSuccess(),
-
     );
   }
 }
-
 

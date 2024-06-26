@@ -32,7 +32,7 @@ class CustomTextFieldWithError extends StatefulWidget {
 class _CustomTextFieldWithErrorState extends State<CustomTextFieldWithError> {
   final RegExp _nameRegex = RegExp(r'^[a-zA-Z\s\-]{3,30}$');
   final RegExp _emailRegex = RegExp(r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$');
-  final RegExp _passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$');
+  final RegExp _passwordRegex = RegExp(r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
   final RegExp _streetAddressRegex = RegExp(r'^[a-zA-Z0-9\s,.\-#]{10,50}$');
 
   TextEditingController? _internalController;
@@ -42,6 +42,7 @@ class _CustomTextFieldWithErrorState extends State<CustomTextFieldWithError> {
   bool _isDirty = false; // Track if the field has been interacted with
   bool _showPasswordRequirements = false;
 
+  bool _passwordLength = false;
   bool _hasUppercase = false;
   bool _hasLowercase = false;
   bool _hasNumber = false;
@@ -82,14 +83,15 @@ class _CustomTextFieldWithErrorState extends State<CustomTextFieldWithError> {
         case TextInputType.visiblePassword:
           if (widget.confirmController == null) {
             _showPasswordRequirements = true;
+            _passwordLength = _passwordRegex.hasMatch(value);
             _hasUppercase = value.contains(RegExp(r'[A-Z]'));
             _hasLowercase = value.contains(RegExp(r'[a-z]'));
             _hasNumber = value.contains(RegExp(r'\d'));
             _hasSpecialCharacter = value.contains(RegExp(r'[@$!%*?&]'));
-            if (!_passwordRegex.hasMatch(value)) {
-              error = 'Weak password. At least 6 characters long';
-            }
-            if (_hasUppercase && _hasLowercase && _hasNumber && _hasSpecialCharacter) {
+            // if (!_passwordRegex.hasMatch(value)) {
+            //   error = 'Weak password. At least 6 characters long';
+            // }
+            if (_hasUppercase && _hasLowercase && _hasNumber && _hasSpecialCharacter && _passwordLength) {
               _showPasswordRequirements = false;
             }
           }
@@ -175,8 +177,10 @@ class _CustomTextFieldWithErrorState extends State<CustomTextFieldWithError> {
             onChanged: _validateInput,
           ),
         ),
+        const SizedBox(height: 2,),
         if (widget.keyboardType == TextInputType.visiblePassword && _showPasswordRequirements && widget.confirmController == null)
           PasswordRequirements(
+            passwordLength: _passwordLength,
             hasUppercase: _hasUppercase,
             hasLowercase: _hasLowercase,
             hasNumber: _hasNumber,

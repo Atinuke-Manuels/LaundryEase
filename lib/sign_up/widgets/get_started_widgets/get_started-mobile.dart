@@ -1,7 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/features/onboarddingFirstSet/custom_button.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/vendor_sign_up.dart';
 
+import '../../../common/long_custom_button.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
 import '../../screens/sign_up.dart';
@@ -55,25 +57,33 @@ class GetStartedMobile extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.sizeOf(context).height * 0.02,
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const SignUp()));
-                    },
-                    child: const Text("Client")),
+                LongCustomButton(
+                  title: "Client",
+                  backgroundColor: const Color(0xFF0F26A6),
+                  foregroundColor: Colors.white,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SignUp()));
+                  },
+                ),
                 const SizedBox(
                   height: 10,
                 ),
-                ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const VendorSignUp()));
-                    },
-                    child: const Text("Laundry Professional")),
+                LongCustomButton(
+                  title: "Laundry Professional",
+                  backgroundColor: Colors.white,
+                  foregroundColor: const Color(0xFF0F26A6),
+                  borderRadius: BorderRadius.circular(8),
+                  borderColor: const Color(0xFF0F26A6),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const VendorSignUp()));
+                  },
+                ),
                 const SizedBox(
                   height: 40,
                 ),
@@ -85,12 +95,17 @@ class GetStartedMobile extends StatelessWidget {
                       const TextSpan(text: "Already have an account? "),
                       TextSpan(
                         text: "Login",
-                        style: const TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
-                        recognizer: TapGestureRecognizer()..onTap = () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => const Login()));
-                        },
+                        style: const TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Login()));
+                          },
                       ),
-                    ]))
+                    ])),
               ],
             ),
           ),
