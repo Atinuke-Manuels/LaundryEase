@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/enter_otp.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/reset_password.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/reset_password_success.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
 
 
@@ -20,6 +24,11 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const GetStarted(),
+      //home: const ForgotPassword(),
+      //home: const EnterOtp(),
+      //home: const ResetPassword(),
+      //home: const ResetPasswordSuccess(),
+
     );
   }
 }
