@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/features/onboarddingFirstSet/custom_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../sign_up/screens/get_started.dart';
@@ -49,7 +50,7 @@ class _onboardingState extends State<onboarding> {
                   child: GestureDetector(
                     onTap: (){},
                     child: Text("Skip",
-                      style: TextStyle(fontSize: 16, color: Colors.blue,),
+                      style: TextStyle(fontSize: 16, color: Color(0xFF0F26A6)),
                     ),
                   ),
               ),
@@ -81,18 +82,13 @@ class _onboardingState extends State<onboarding> {
                             ),
                             Text("Schedule. Track and Relax with LaundryEase!"),
                             SizedBox(height:MediaQuery.of(context).size.height * 0.04),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text("Next"),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-                              ),
-                            ),
+                            CustomButton(
+                              title: "Next",
+                              padding: EdgeInsets.symmetric(horizontal:32, vertical: 8),
+                              backgroundColor: Color(0xFF0F26A6),
+                              foregroundColor: Colors.white,
+                              onPressed: (){},
+                            )
                           ],
                         ),
 
@@ -104,18 +100,14 @@ class _onboardingState extends State<onboarding> {
                             ),
                             Text("Professional clean laundry at your doorstep"),
                             SizedBox(height:MediaQuery.of(context).size.height * 0.04),
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Text("Next"),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue,
-                                foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-                              ),
-                            ),
+                            CustomButton(
+                              title: "Next",
+                              padding: EdgeInsets.symmetric(horizontal:32, vertical: 8),
+                              backgroundColor: Color(0xFF0F26A6),
+                              foregroundColor: Colors.white,
+                              onPressed: (){},
+                            )
+
                           ],
                         ),
 
@@ -127,21 +119,17 @@ class _onboardingState extends State<onboarding> {
                             ),
                             Text("Connect with reliable laundry professionals near you"),
                             SizedBox(height:MediaQuery.of(context).size.height * 0.04),
-                            ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(context,
-                                    MaterialPageRoute(builder: (context) => GetStarted()));
-                              },
-                              child: Text("Next"),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue,
+                            CustomButton(
+                                title: "Next",
+                                padding: EdgeInsets.symmetric(horizontal:32, vertical: 8),
+                                backgroundColor: Color(0xFF0F26A6),
                                 foregroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                padding: EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-                              ),
-                            ),
+                                onPressed: (){
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => GetStarted()));
+                                },
+                            )
                           ],
                         ),
 
@@ -155,3 +143,5 @@ class _onboardingState extends State<onboarding> {
     );
   }
 }
+
+
