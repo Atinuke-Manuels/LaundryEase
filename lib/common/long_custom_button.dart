@@ -37,7 +37,7 @@ class LongCustomButton extends StatelessWidget {
             backgroundColor:  backgroundColor,
             foregroundColor: foregroundColor,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(8),
             ),
             padding: padding,
           ),
