@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:laundry_ease_upgrade/common/long_custom_button.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/reset_password.dart';
 
 class EnterOtp extends StatefulWidget {
   const EnterOtp({super.key});
@@ -31,7 +33,7 @@ class _EnterOtpState extends State<EnterOtp> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text("Enter the 4 digits verification code sent to \nyour email.")),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
               Row(
                 
                 children: [
@@ -183,7 +185,17 @@ class _EnterOtpState extends State<EnterOtp> {
                 child: Text("Resend code in 00:25sec",
                 style: TextStyle(
                   color: Colors.black26
-                ),))
+                ),)),
+                const SizedBox(height: 30),
+              LongCustomButton(
+                title: "Submit",
+                backgroundColor: const Color(0xFF0F26A6),
+                foregroundColor: Colors.white,
+                onPressed: (){
+                   Navigator.push(
+                      context, MaterialPageRoute(builder: (context)=> ResetPassword()));
+                },
+              ),
           ],),
       ),
 
