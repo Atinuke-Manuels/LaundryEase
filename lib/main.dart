@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:laundry_ease_upgrade/password_sceens/password/enter_otp.dart';
-import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
-import 'package:laundry_ease_upgrade/password_sceens/password/reset_password.dart';
-import 'package:laundry_ease_upgrade/password_sceens/password/reset_password_success.dart';
-import 'package:laundry_ease_upgrade/sign_up/screens/get_started.dart';
 
 
-import 'features/onboarddingFirstSet/onboarding.dart';
-import 'features/onboarddingFirstSet/onboarding1.dart';
+import 'features/onboardingFirstSet/onboarding.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const GetStarted(),
+      home: const onboarding(),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_ease_upgrade/features/onboarddingFirstSet/custom_button.dart';
+import 'package:laundry_ease_upgrade/features/onboardingFirstSet/custom_button.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../sign_up/screens/get_started.dart';

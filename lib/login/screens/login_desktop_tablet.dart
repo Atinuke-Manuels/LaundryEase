@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../sign_up/screens/sign_up.dart';
@@ -44,7 +45,9 @@ class LoginDesktopTablet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TermsAndConditionsCheckbox(title: 'Remember me',),
-                  TextButton(onPressed: (){}, child:  Text("Forgot password?", style: TextStyle(color: Colors.blue.shade800),))
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
+                  }, child:  Text("Forgot password?", style: TextStyle(color: Colors.blue.shade800),))
                 ],
               ),
               const SizedBox(height: 40,),
