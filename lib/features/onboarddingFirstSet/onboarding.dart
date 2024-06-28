@@ -26,8 +26,11 @@ class _onboardingState extends State<onboarding> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         body: SingleChildScrollView(
+          child: Container(
+                height: MediaQuery.of(context).size.height,
           child: Stack(
               children: [
                 PageView(
@@ -241,7 +244,7 @@ class _onboardingState extends State<onboarding> {
               ],
 
           ),
-
+        ),
         ),
     );
   }
