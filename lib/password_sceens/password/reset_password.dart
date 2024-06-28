@@ -15,46 +15,48 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          children: [
-            SizedBox(height: 100,),
-            Center(child: Image.asset("assets/reset_img.png")),
-            SizedBox(height: 30,),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Reset Password",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20
-              ),)),
-              SizedBox(height: 10,),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Column(
+            children: [
+              SizedBox(height: 100,),
+              Center(child: Image.asset("assets/reset_img.png")),
+              SizedBox(height: 30,),
               Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Enter the 4 digits verification code sent to \nyour email.")),
-                
-                CustomTextFieldWithError(
-                title: "New Password", 
-                hintText: "******", 
-                keyboardType: TextInputType.emailAddress),
-                
-                CustomTextFieldWithError(
-                title: "Comfirm Password", 
-                hintText: "*******", 
-                keyboardType: TextInputType.emailAddress),
-                const SizedBox(height: 30),
-                LongCustomButton(
-                title: "Submit",
-                backgroundColor: const Color(0xFF0F26A6),
-                foregroundColor: Colors.white,
-                onPressed: (){
-                   Navigator.push(
-                      context, MaterialPageRoute(builder: (context)=> ResetPasswordSuccess()));
-                },
-              ),
-          ],),),
+                child: Text(
+                  "Reset Password",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20
+                ),)),
+                SizedBox(height: 10,),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("Enter the 4 digits verification code sent to \nyour email.")),
+                  
+                  CustomTextFieldWithError(
+                  title: "New Password", 
+                  hintText: "******", 
+                  keyboardType: TextInputType.visiblePassword),
+                  
+                  CustomTextFieldWithError(
+                  title: "Comfirm Password", 
+                  hintText: "*******", 
+                  keyboardType: TextInputType.visiblePassword),
+                  const SizedBox(height: 30),
+                  LongCustomButton(
+                  title: "Submit",
+                  backgroundColor: const Color(0xFF0F26A6),
+                  foregroundColor: Colors.white,
+                  onPressed: (){
+                     Navigator.push(
+                        context, MaterialPageRoute(builder: (context)=> ResetPasswordSuccess()));
+                  },
+                ),
+            ],),),
+      ),
     );
   }
 }
