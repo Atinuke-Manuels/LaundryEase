@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/common/long_custom_button.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/enter_otp.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/custom_text_fields_with_error.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -38,9 +40,24 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               CustomTextFieldWithError(
                 title: "Email Address/Mobile number", 
                 hintText: "Enter your email", 
-                keyboardType: TextInputType.emailAddress)
+                keyboardType: TextInputType.emailAddress),
+                const SizedBox(height: 50),
+                LongCustomButton(
+                  title: "Submit",
+                  backgroundColor: const Color(0xFF0F26A6),
+                  foregroundColor: Colors.white,
+                  onPressed: (){
+                    Navigator.push(
+                      context, MaterialPageRoute(builder: (context)=> EnterOtp()));
+                  },
+                ),
+
+            
+
+
           ],
         ),
+      
       ),
     );
   }

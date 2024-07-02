@@ -4,7 +4,6 @@ import 'package:laundry_ease_upgrade/sign_up/screens/sign_up.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/vendor_sign_up.dart';
 
 import '../../../common/long_custom_button.dart';
-import '../../../features/onboarddingFirstSet/custom_button.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
 
