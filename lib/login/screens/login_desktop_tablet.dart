@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/common/long_custom_button.dart';
+import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../sign_up/screens/sign_up.dart';
@@ -44,13 +46,16 @@ class LoginDesktopTablet extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TermsAndConditionsCheckbox(title: 'Remember me',),
-                  TextButton(onPressed: (){}, child:  Text("Forgot password?", style: TextStyle(color: Colors.blue.shade800),))
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
+                  }, child:  Text("Forgot password?", style: TextStyle(color: Colors.blue.shade800),))
                 ],
               ),
               const SizedBox(height: 40,),
-              ElevatedButton(
-                onPressed:  (){},
-                child: const Text("Login"),
+              LongCustomButton(title: "Login",
+                backgroundColor: const Color(0xFF0F26A6),
+                foregroundColor: Colors.white,
+                onPressed: (){},
               ),
               const SizedBox(height: 20),
               const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),

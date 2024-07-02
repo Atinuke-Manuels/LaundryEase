@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:laundry_ease_upgrade/features/onboarddingFirstSet/custom_button.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/vendor_sign_up.dart';
 
 import '../../../common/long_custom_button.dart';

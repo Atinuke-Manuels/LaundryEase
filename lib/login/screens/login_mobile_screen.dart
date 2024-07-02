@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/login/widgets/login_text_fields.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/sign_up.dart';
 
+import '../../common/long_custom_button.dart';
 import '../../gen/assets.gen.dart';
+import '../../password_sceens/password/forgot_password.dart';
 import '../../sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
 class LoginMobileScreen extends StatelessWidget {
@@ -44,13 +46,16 @@ class LoginMobileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TermsAndConditionsCheckbox(title: 'Remember me',),
-                  TextButton(onPressed: (){}, child:  Text("Forgot password?", style: TextStyle(color: Colors.blue.shade800),))
+                  TextButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const ForgotPassword()));
+                  }, child:  Text("Forgot password?", style: TextStyle(color: Colors.blue.shade800),))
                 ],
               ),
-              SizedBox(height: 40,),
-              ElevatedButton(
-                 onPressed:  (){},
-                child: const Text("Login"),
+              const SizedBox(height: 100,),
+              LongCustomButton(title: "Login",
+                backgroundColor: const Color(0xFF0F26A6),
+                foregroundColor: Colors.white,
+                onPressed: (){},
               ),
               const SizedBox(height: 20),
               const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),
