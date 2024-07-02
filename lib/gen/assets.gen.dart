@@ -9,26 +9,63 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsImagesGen {
+  const $AssetsImagesGen();
+
+  /// File path: assets/images/screen1.png
+  AssetGenImage get screen1 => const AssetGenImage('assets/images/screen1.png');
+
+  /// File path: assets/images/screen2.png
+  AssetGenImage get screen2 => const AssetGenImage('assets/images/screen2.png');
+
+  /// File path: assets/images/screen3.png
+  AssetGenImage get screen3 => const AssetGenImage('assets/images/screen3.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [screen1, screen2, screen3];
+}
+
 class Assets {
   Assets._();
 
   static const AssetGenImage email = AssetGenImage('assets/email.png');
   static const AssetGenImage facebook = AssetGenImage('assets/facebook.png');
+  static const AssetGenImage forgotImg = AssetGenImage('assets/forgot_img.png');
   static const AssetGenImage getStarted =
       AssetGenImage('assets/getStarted.png');
   static const AssetGenImage google = AssetGenImage('assets/google.png');
+  static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const AssetGenImage otpImg = AssetGenImage('assets/otp_img.png');
+  static const AssetGenImage passwordResetSuccessful =
+      AssetGenImage('assets/password_reset_successful.png');
+  static const AssetGenImage pswImg = AssetGenImage('assets/psw_img.png');
+  static const AssetGenImage resetImg = AssetGenImage('assets/reset_img.png');
 
   /// List of all assets
-  static List<AssetGenImage> get values =>
-      [email, facebook, getStarted, google];
+  static List<AssetGenImage> get values => [
+        email,
+        facebook,
+        forgotImg,
+        getStarted,
+        google,
+        otpImg,
+        passwordResetSuccessful,
+        pswImg,
+        resetImg
+      ];
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName, {this.size = null});
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
 
   final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,

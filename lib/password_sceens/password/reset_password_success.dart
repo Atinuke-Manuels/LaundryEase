@@ -29,7 +29,7 @@ class _ResetPasswordSuccessState extends State<ResetPasswordSuccess> {
             ),),
            ),
            SizedBox(height: 21,width: 345,),
-           Text("Log in into your account with your new password."),
+           Text("Log in into your account with your new password.", textAlign: TextAlign.center,),
            const SizedBox(height: 50),
               LongCustomButton(
                 title: "Log in",
