@@ -7,7 +7,7 @@ class onboarding3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+        body: SingleChildScrollView(
           child: Container(
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -26,7 +26,7 @@ class onboarding3 extends StatelessWidget {
                     //     ),
                     //   ),
                     // ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.15),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.17),
                     Image.asset("assets/images/screen3.png"),
                   ],
                 ),
