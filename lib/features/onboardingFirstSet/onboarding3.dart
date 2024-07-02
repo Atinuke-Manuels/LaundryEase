@@ -1,38 +1,38 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class onboarding3 extends StatelessWidget {
-  const onboarding3({super.key});
+class Onboarding3 extends StatefulWidget {
+  const Onboarding3({super.key});
+
+  @override
+  State<Onboarding3> createState() => _Onboarding3State();
+}
+
+class _Onboarding3State extends State<Onboarding3> {
+
+  PageController _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    // Padding(
-                    //   padding: const EdgeInsets.only(top: 16.0),
-                    //   child: Align(
-                    //     alignment: Alignment.topRight,
-                    //     child: GestureDetector(
-                    //       onTap: () {},
-                    //       child: Text("Skip",
-                    //         style: TextStyle(fontSize: 16, color: Colors.blue, ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.15),
-                    Image.asset("assets/images/screen3.png"),
-                  ],
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height * 0.08),
+                // Constraining the height of the image to prevent overflow
+                Image.asset(
+                  "assets/images/screen3.png",
+                  height: MediaQuery.of(context).size.height * 0.5,
+                  fit: BoxFit.contain,
                 ),
-              )
+              ],
+            ),
           ),
-        )
+        ),
+      ),
     );
   }
 }
