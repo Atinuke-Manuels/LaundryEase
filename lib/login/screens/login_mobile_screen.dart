@@ -6,6 +6,7 @@ import 'package:laundry_ease_upgrade/sign_up/screens/sign_up.dart';
 import '../../common/long_custom_button.dart';
 import '../../gen/assets.gen.dart';
 import '../../password_sceens/password/forgot_password.dart';
+import '../../profile/screens/profile_page.dart';
 import '../../sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
 class LoginMobileScreen extends StatelessWidget {
@@ -55,7 +56,9 @@ class LoginMobileScreen extends StatelessWidget {
               LongCustomButton(title: "Login",
                 backgroundColor: const Color(0xFF0F26A6),
                 foregroundColor: Colors.white,
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                },
               ),
               const SizedBox(height: 20),
               const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),

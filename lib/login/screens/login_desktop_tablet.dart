@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/common/long_custom_button.dart';
 import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
+import 'package:laundry_ease_upgrade/profile/screens/profile_page.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../sign_up/screens/sign_up.dart';
@@ -55,7 +56,9 @@ class LoginDesktopTablet extends StatelessWidget {
               LongCustomButton(title: "Login",
                 backgroundColor: const Color(0xFF0F26A6),
                 foregroundColor: Colors.white,
-                onPressed: (){},
+                onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                },
               ),
               const SizedBox(height: 20),
               const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),
