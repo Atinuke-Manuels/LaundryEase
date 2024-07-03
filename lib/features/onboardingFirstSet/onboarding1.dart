@@ -13,7 +13,8 @@ class _Onboarding1State extends State<Onboarding1> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
+      Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
