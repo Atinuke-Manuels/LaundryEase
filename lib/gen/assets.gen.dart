@@ -25,6 +25,21 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [screen1, screen2, screen3];
 }
 
+class $AssetsProfileGen {
+  const $AssetsProfileGen();
+
+  /// File path: assets/profile/left_curve.png
+  AssetGenImage get leftCurve =>
+      const AssetGenImage('assets/profile/left_curve.png');
+
+  /// File path: assets/profile/right_curve.png
+  AssetGenImage get rightCurve =>
+      const AssetGenImage('assets/profile/right_curve.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [leftCurve, rightCurve];
+}
+
 class Assets {
   Assets._();
 
@@ -38,6 +53,7 @@ class Assets {
   static const AssetGenImage otpImg = AssetGenImage('assets/otp_img.png');
   static const AssetGenImage passwordResetSuccessful =
       AssetGenImage('assets/password_reset_successful.png');
+  static const $AssetsProfileGen profile = $AssetsProfileGen();
   static const AssetGenImage pswImg = AssetGenImage('assets/psw_img.png');
   static const AssetGenImage resetImg = AssetGenImage('assets/reset_img.png');
 
