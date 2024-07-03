@@ -17,12 +17,12 @@ class LoginDesktopTablet extends StatelessWidget {
     return  Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           reverse: false,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text(
@@ -61,7 +61,7 @@ class LoginDesktopTablet extends StatelessWidget {
                 },
               ),
               const SizedBox(height: 20),
-              const Center(child: Text("OR", style: TextStyle(), textAlign: TextAlign.center,)),
+              const Center(child: Text("OR", style: TextStyle(fontSize: 16,), textAlign: TextAlign.center,)),
               const SizedBox(height: 20),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -76,7 +76,7 @@ class LoginDesktopTablet extends StatelessWidget {
                       child: Image.asset(Assets.facebook.path, height: 30, width: 30,)),
                 ],
               ),
-              const SizedBox(height: 80),
+              const SizedBox(height: 20),
               Center(
                 child: RichText(
                     textAlign: TextAlign.center,

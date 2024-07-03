@@ -28,6 +28,14 @@ class $AssetsImagesGen {
 class $AssetsProfileGen {
   const $AssetsProfileGen();
 
+  /// File path: assets/profile/Account.png
+  AssetGenImage get account =>
+      const AssetGenImage('assets/profile/Account.png');
+
+  /// File path: assets/profile/Reviews.png
+  AssetGenImage get reviews =>
+      const AssetGenImage('assets/profile/Reviews.png');
+
   /// File path: assets/profile/left_curve.png
   AssetGenImage get leftCurve =>
       const AssetGenImage('assets/profile/left_curve.png');
@@ -36,8 +44,12 @@ class $AssetsProfileGen {
   AssetGenImage get rightCurve =>
       const AssetGenImage('assets/profile/right_curve.png');
 
+  /// File path: assets/profile/track.png
+  AssetGenImage get track => const AssetGenImage('assets/profile/track.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [leftCurve, rightCurve];
+  List<AssetGenImage> get values =>
+      [account, reviews, leftCurve, rightCurve, track];
 }
 
 class Assets {

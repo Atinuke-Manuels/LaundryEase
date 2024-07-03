@@ -30,15 +30,15 @@ class GetStartedDesktopTablet extends StatelessWidget {
                 Container(
                   width: 340,
                   height: 340,
-                  padding: EdgeInsets.all(50),
+                  padding: const EdgeInsets.all(50),
                   decoration: BoxDecoration(
                     color: Colors.grey[200],
                     borderRadius: BorderRadius.circular(340),
                   ),
                   child: Image.asset(
                     Assets.getStarted.path,
-                    width:  232,
-                    height: 232,
+                    width:  200,
+                    height: 200,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -78,11 +78,11 @@ class GetStartedDesktopTablet extends StatelessWidget {
                   },
                 ),
                 const SizedBox(
-                  height: 40,
+                  height: 20,
                 ),
                 RichText(
                     text: TextSpan(
-                        style: const TextStyle(color: Colors.black, fontSize: 26),
+                        style: const TextStyle(color: Colors.black, fontSize: 16,),
                         children: [
                           const TextSpan(text: "Already have an account? "),
                           TextSpan(
