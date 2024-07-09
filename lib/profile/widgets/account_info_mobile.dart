@@ -16,7 +16,7 @@ class AccountInfoMobile extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Account Info", style: TextStyle(fontWeight: FontWeight.w100, fontSize: 20),),
         centerTitle: true,
-        leading: const Icon(Icons.arrow_circle_left, color: Color(0xFF344EAF),),
+        leading: GestureDetector(onTap: (){Navigator.pop(context);}, child: const Icon(Icons.arrow_circle_left, color: Color(0xFF344EAF),)),
         backgroundColor: Colors.white,
         actions: [
           TextButton(onPressed: (){}, child: const Text("Done", style: TextStyle(color: Color(0xFF344EAF), fontWeight: FontWeight.w600),))
