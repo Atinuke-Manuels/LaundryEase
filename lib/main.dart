@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:laundry_ease_upgrade/features/homec/pages/home_page.dart';
 
+import 'features/homec/pages/home_page.dart';
 import 'features/onboardingFirstSet/onboarding.dart';
 
 void main() {
@@ -21,7 +23,9 @@ class MyApp extends StatelessWidget {
           title: 'Laundry Ease',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
+            primaryColor: Color(0xFF0F26A6),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            //Color(0xFF0F26A6),
             useMaterial3: true,
             fontFamily: 'Poppins', // This will use the regular font
             textTheme: TextTheme(
@@ -36,6 +40,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
           home: const Onboarding(),
+          //home: const HomePage(),
         );
       },
     );
