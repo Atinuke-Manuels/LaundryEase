@@ -11,24 +11,40 @@ class PopularLaundromat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+            leading: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child:
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                     shape: BoxShape.circle,
+                    ),
+                    //padding: EdgeInsets.all(4),
+                    child: Icon(Icons.arrow_back, color: Colors.white),
+                  ),
+              ),
+            ),
+
+            title: Row(
+              children: [
+                //SizedBox(width: MediaQuery.of(context).size.width*0.05,),
+                Text("Popular Laundromat Nearby", style: (TextStyle(fontSize: 18)),),
+              ],
+            )
+
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               children: [
-        
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {},
-                        child: Image.asset("assets/images/cart-images/circle-back.png", width: 30,),
-                    ),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.05,),
-                    Text("Popular Laundromat Nearby", style: (TextStyle(fontSize: 18)),)
-                  ],
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+               // SizedBox(height: MediaQuery.of(context).size.height*0.02,),
                 FreshStart(),
                 SizedBox(height: MediaQuery.of(context).size.height*0.02,),
                 CleanState(),

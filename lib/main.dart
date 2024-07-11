@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
               titleLarge: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, fontFamily: 'Poppins'),
             ),
           ),
-          home: const Onboarding(),
-          //home: const HomePage(),
+          //home: const Onboarding(),
+          home: const HomePage(),
         );
       },
     );
