@@ -10,7 +10,10 @@ class SunshineLaundry extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:MediaQuery.of(context).size.height * 0.26,
+      //height:MediaQuery.of(context).size.height * 0.26,
+      height: MediaQuery.of(context).orientation == Orientation.portrait
+          ? MediaQuery.of(context).size.height * 0.26
+          : MediaQuery.of(context).size.height * 0.6,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
@@ -23,7 +26,10 @@ class SunshineLaundry extends StatelessWidget {
             child: Stack(
               children: [
                 Container(
-                  height:MediaQuery.of(context).size.height * 0.26,
+                  //height:MediaQuery.of(context).size.height * 0.26,
+                  height: MediaQuery.of(context).orientation == Orientation.portrait
+                      ? MediaQuery.of(context).size.height * 0.26
+                      : MediaQuery.of(context).size.height * 0.6,
                   width: MediaQuery.of(context).size.width * 0.47,
                   child: Image.asset("assets/images/cart-images/hanging.png",
                     fit: BoxFit.cover,
@@ -51,7 +57,12 @@ class SunshineLaundry extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.025),
+          //SizedBox(width: MediaQuery.of(context).size.width * 0.025),
+          SizedBox(
+            width:MediaQuery.of(context).orientation == Orientation.portrait
+                ? MediaQuery.sizeOf(context). width * 0.025
+                : MediaQuery.sizeOf(context). width * 0.08,
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 16.0),
             child: Column(
