@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   var selectedIndex = 0;
-  bool isShowingPopularLaundromat = false;
+  //bool isShowingPopularLaundromat = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
