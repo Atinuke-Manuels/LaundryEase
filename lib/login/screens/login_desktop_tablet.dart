@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/common/long_custom_button.dart';
+import 'package:laundry_ease_upgrade/features/homec/pages/home_page.dart';
 import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
 import 'package:laundry_ease_upgrade/profile/screens/profile_page.dart';
 
@@ -57,7 +58,7 @@ class LoginDesktopTablet extends StatelessWidget {
                 backgroundColor: const Color(0xFF0F26A6),
                 foregroundColor: Colors.white,
                 onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                 },
               ),
               const SizedBox(height: 20),

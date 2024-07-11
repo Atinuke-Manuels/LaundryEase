@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:laundry_ease_upgrade/features/homec/pages/home_page.dart';
 import 'package:laundry_ease_upgrade/login/widgets/login_text_fields.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/sign_up.dart';
 
@@ -57,7 +58,7 @@ class LoginMobileScreen extends StatelessWidget {
                 backgroundColor: const Color(0xFF0F26A6),
                 foregroundColor: Colors.white,
                 onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
                 },
               ),
               const SizedBox(height: 20),
