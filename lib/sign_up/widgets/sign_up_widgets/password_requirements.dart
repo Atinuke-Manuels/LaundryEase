@@ -54,7 +54,7 @@ class PasswordRequirements extends StatelessWidget {
           text,
           style: TextStyle(
             color: isMet ? Colors.green : Colors.red,
-            fontSize: 14,
+            fontSize: 11,
           ),
         ),
       ],

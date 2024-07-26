@@ -26,8 +26,6 @@ class LoginTextFields extends StatefulWidget {
 }
 
 class _LoginTextFieldsState extends State<LoginTextFields> {
-
-  TextEditingController? _internalController;
   String? _errorText;
   bool _obscureText = true; // To handle password visibility
 
@@ -48,7 +46,7 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
             border: Border.all(color: Colors.grey, width: 0.5),
           ),
           child: TextFormField(
-            controller: _internalController,
+            controller: widget.controller,
             obscureText: widget.keyboardType == TextInputType.visiblePassword ? _obscureText : false,
             decoration: InputDecoration(
               hintText: widget.hintText,
@@ -61,7 +59,7 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
                 borderRadius: BorderRadius.circular(8),
                 borderSide: _errorText != null ? const BorderSide(color: Colors.red) : BorderSide.none,
               ),
-              errorText:  _errorText, // Display error only if the field has been interacted with
+              errorText: _errorText, // Display error only if the field has been interacted with
               suffixIcon: widget.keyboardType == TextInputType.visiblePassword
                   ? IconButton(
                 icon: Icon(
@@ -88,11 +86,14 @@ class _LoginTextFieldsState extends State<LoginTextFields> {
                 _errorText; // Set the field as interacted with when it's tapped
               });
             },
+            onChanged: (text) {
+              if (widget.onValidationChanged != null) {
+                widget.onValidationChanged!(text.isNotEmpty);
+              }
+            },
           ),
         ),
       ],
     );
   }
 }
-
-

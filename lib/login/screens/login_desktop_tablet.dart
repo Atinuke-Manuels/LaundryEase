@@ -1,17 +1,30 @@
+import 'dart:convert';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/common/long_custom_button.dart';
 import 'package:laundry_ease_upgrade/features/homec/pages/home_page.dart';
 import 'package:laundry_ease_upgrade/password_sceens/password/forgot_password.dart';
 import 'package:laundry_ease_upgrade/profile/screens/profile_page.dart';
+import 'package:http/http.dart' as http;
 
+import '../../auth_services/login_auth.dart';
 import '../../gen/assets.gen.dart';
 import '../../sign_up/screens/sign_up.dart';
 import '../../sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 import '../widgets/login_text_fields.dart';
 
-class LoginDesktopTablet extends StatelessWidget {
+class LoginDesktopTablet extends StatefulWidget {
   const LoginDesktopTablet({super.key});
+
+  @override
+  State<LoginDesktopTablet> createState() => _LoginDesktopTabletState();
+}
+
+class _LoginDesktopTabletState extends State<LoginDesktopTablet> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +55,28 @@ class LoginDesktopTablet extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               const SizedBox(height: 30,),
-              const LoginTextFields(title: "Email Address", hintText: "Enter your email", keyboardType: TextInputType.emailAddress),
-              const LoginTextFields(title: "Password", hintText: "Enter your password", keyboardType: TextInputType.visiblePassword),
+              LoginTextFields(
+                title: "Email Address",
+                hintText: "Enter your email",
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
+                onValidationChanged: (text) {
+                  setState(() {
+                    _emailController.text = text as String;
+                  });
+                },
+              ),
+              LoginTextFields(
+                title: "Password",
+                hintText: "Enter your password",
+                keyboardType: TextInputType.visiblePassword,
+                controller: _passwordController,
+                onValidationChanged: (text) {
+                  setState(() {
+                    _passwordController.text = text as String;
+                  });
+                },
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -54,11 +87,24 @@ class LoginDesktopTablet extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 40,),
-              LongCustomButton(title: "Login",
+              LongCustomButton(
+                title: "Login",
                 backgroundColor: const Color(0xFF0F26A6),
                 foregroundColor: Colors.white,
-                onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                onPressed: () {
+                  login(
+                    context,
+                    _emailController.text,
+                    _passwordController.text,
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
               const SizedBox(height: 20),
@@ -101,4 +147,5 @@ class LoginDesktopTablet extends StatelessWidget {
       ),
     );
   }
+
 }

@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/email_verification.dart';
 import 'package:laundry_ease_upgrade/sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
+import 'package:http/http.dart' as http;
 
+import '../../../auth_services/signup_auth.dart';
 import '../../../common/long_custom_button.dart';
 import '../../../gen/assets.gen.dart';
 import '../../../login/screens/login.dart';
@@ -190,15 +194,29 @@ class _SignUpDesktopTabletState extends State<SignUpDesktopTablet> {
 
   void _onSignUp() {
     if (_isValid) {
-      // Navigate to the next page
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) =>
-            const EmailVerification()), // Replace `NextPage` with your actual next page
-      );
+      if (_passwordController.text == _confirmPasswordController.text) {
+        signUp(
+          _nameController.text,
+          _emailAddressController.text,
+          _passwordController.text,
+          _confirmPasswordController.text,
+          context,
+              () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const EmailVerification(), // Adjust if needed
+              ),
+            );
+          },
+
+        );
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Passwords do not match.')),
+        );
+      }
     } else {
-      // Display an error message
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
             content: Text(

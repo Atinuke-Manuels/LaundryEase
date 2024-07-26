@@ -4,18 +4,28 @@ import 'package:laundry_ease_upgrade/features/homec/pages/home_page.dart';
 import 'package:laundry_ease_upgrade/login/widgets/login_text_fields.dart';
 import 'package:laundry_ease_upgrade/sign_up/screens/sign_up.dart';
 
+
+import '../../auth_services/login_auth.dart';
 import '../../common/long_custom_button.dart';
 import '../../gen/assets.gen.dart';
 import '../../password_sceens/password/forgot_password.dart';
-import '../../profile/screens/profile_page.dart';
 import '../../sign_up/widgets/sign_up_widgets/terms_and_conditions_checkbox.dart';
 
-class LoginMobileScreen extends StatelessWidget {
+class LoginMobileScreen extends StatefulWidget {
   const LoginMobileScreen({super.key});
 
   @override
+  _LoginMobileScreenState createState() => _LoginMobileScreenState();
+}
+
+class _LoginMobileScreenState extends State<LoginMobileScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+
+  @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16),
@@ -42,8 +52,28 @@ class LoginMobileScreen extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               const SizedBox(height: 30,),
-              const LoginTextFields(title: "Email Address", hintText: "Enter your email", keyboardType: TextInputType.emailAddress),
-              const LoginTextFields(title: "Password", hintText: "Enter your password", keyboardType: TextInputType.visiblePassword),
+              LoginTextFields(
+                title: "Email Address",
+                hintText: "Enter your email",
+                keyboardType: TextInputType.emailAddress,
+                controller: _emailController,
+                onValidationChanged: (text) {
+                  setState(() {
+                    _emailController.text = text as String;
+                  });
+                },
+              ),
+              LoginTextFields(
+                title: "Password",
+                hintText: "Enter your password",
+                keyboardType: TextInputType.visiblePassword,
+                controller: _passwordController,
+                onValidationChanged: (text) {
+                  setState(() {
+                    _passwordController.text = text as String;
+                  });
+                },
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -54,11 +84,24 @@ class LoginMobileScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 100,),
-              LongCustomButton(title: "Login",
+              LongCustomButton(
+                title: "Login",
                 backgroundColor: const Color(0xFF0F26A6),
                 foregroundColor: Colors.white,
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const HomePage()));
+                onPressed: () {
+                  login(
+                    context,
+                    _emailController.text,
+                    _passwordController.text,
+                        () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomePage(),
+                        ),
+                      );
+                    },
+                  );
                 },
               ),
               const SizedBox(height: 20),
@@ -101,4 +144,8 @@ class LoginMobileScreen extends StatelessWidget {
       ),
     );
   }
+
+
+
+
 }
