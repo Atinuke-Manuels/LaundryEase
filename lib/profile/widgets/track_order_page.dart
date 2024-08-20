@@ -6,9 +6,9 @@ class TrackOrderPage extends StatefulWidget {
 }
 
 class _TrackOrderPageState extends State<TrackOrderPage> {
-  // Initial stages
+  // Initial stages with editable descriptions
   final List<Stage> stages = [
-    Stage(title: "Confirm order", isCompleted: true, description: "Your order was confirmed 11th June 2024, 9:40 AM."),
+    Stage(title: "Confirm order", isCompleted: true, description: ""),
     Stage(title: "Clothes pick up", isCompleted: false, description: ""),
     Stage(title: "Washing process", isCompleted: false, description: ""),
     Stage(title: "Drying Stage", isCompleted: false, description: ""),
@@ -85,7 +85,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
                       }
                     });
                   },
-                  child: buildStageTile(stages[index], index == stages.length - 1),
+                  child: buildStageTile(stages[index], index == stages.length - 1, index),
                 );
               },
             ),
@@ -110,42 +110,68 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
     return false;
   }
 
-  Widget buildStageTile(Stage stage, bool isLastStage) {
+  Widget buildStageTile(Stage stage, bool isLastStage, int index) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Column(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Icon(
-                stage.isCompleted ? Icons.check_circle : Icons.radio_button_unchecked,
-                color: stage.isCompleted ? Colors.blue : Colors.grey,
+              Column(
+                children: [
+                  Icon(
+                    stage.isCompleted ? Icons.check_circle : Icons.radio_button_unchecked,
+                    color: stage.isCompleted ? Colors.blue : Colors.grey,
+                  ),
+                  if (!isLastStage)
+                    Container(
+                      height: 50,
+                      width: 2,
+                      color: stage.isCompleted ? Colors.blue : Colors.grey,
+                    ),
+                ],
               ),
-              if (!isLastStage)
-                Container(
-                  height: 50,
-                  width: 2,
-                  color: stage.isCompleted ? Colors.blue : Colors.grey,
+              SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      stage.title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        color: stage.isCompleted ? Colors.black : Colors.grey,
+                      ),
+                    ),
+                    SizedBox(height: 4),
+                    if (stage.isCompleted && stage.description.isEmpty)
+                      TextField(
+                        onSubmitted: (value) {
+                          setState(() {
+                            stages[index].description = value;
+                          });
+                        },
+                        decoration: InputDecoration(
+                          hintText: "Enter description",
+                          hintStyle: TextStyle(color: Colors.grey),
+                        ),
+                      )
+                    else
+                      Text(
+                        stage.description.isNotEmpty
+                            ? stage.description
+                            : "Input field",
+                        style: TextStyle(
+                          color: stage.isCompleted ? Colors.black : Colors.grey,
+                        ),
+                      ),
+                  ],
                 ),
+              ),
             ],
-          ),
-          SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  stage.title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: stage.isCompleted ? Colors.black : Colors.grey),
-                ),
-                SizedBox(height: 4),
-                Text(
-                  stage.description.isNotEmpty ? stage.description : "Input field",
-                  style: TextStyle(color: stage.isCompleted ? Colors.black : Colors.grey),
-                ),
-              ],
-            ),
           ),
         ],
       ),
@@ -193,7 +219,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
 class Stage {
   final String title;
   bool isCompleted;
-  final String description;
+  String description;
 
   Stage({
     required this.title,
