@@ -9,7 +9,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
   // Initial stages
   final List<Stage> stages = [
     Stage(title: "Confirm order", isCompleted: true, description: "Your order was confirmed 11th June 2024, 9:40 AM."),
-    Stage(title: "Clothes pick up", isCompleted: true, description: "Your clothes were picked up on 11th June 2024, 11:30 AM."),
+    Stage(title: "Clothes pick up", isCompleted: false, description: ""),
     Stage(title: "Washing process", isCompleted: false, description: ""),
     Stage(title: "Drying Stage", isCompleted: false, description: ""),
     Stage(title: "Ironing Stage", isCompleted: false, description: ""),
@@ -75,7 +75,9 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
                 return GestureDetector(
                   onTap: () {
                     setState(() {
-                      stages[index].isCompleted = !stages[index].isCompleted;
+                      if (_canToggleStage(index)) {
+                        stages[index].isCompleted = !stages[index].isCompleted;
+                      }
 
                       // Check if all stages are completed
                       if (stages.every((stage) => stage.isCompleted)) {
@@ -91,6 +93,21 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
         ),
       ),
     );
+  }
+
+  bool _canToggleStage(int index) {
+    if (stages[index].isCompleted) {
+      // Allow unclicking only if this is the last completed stage or all subsequent stages are incomplete
+      if (index == stages.length - 1 || !stages[index + 1].isCompleted) {
+        return true;
+      }
+    } else {
+      // Allow clicking only if the previous stage is completed
+      if (index == 0 || stages[index - 1].isCompleted) {
+        return true;
+      }
+    }
+    return false;
   }
 
   Widget buildStageTile(Stage stage, bool isLastStage) {
