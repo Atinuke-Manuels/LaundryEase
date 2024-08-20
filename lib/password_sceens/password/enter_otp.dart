@@ -53,56 +53,59 @@ class _EnterOtpState extends State<EnterOtp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            const SizedBox(height: 100),
-            Center(child: Image.asset("assets/otp_img.png")),
-            const SizedBox(height: 40),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Enter OTP",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
+      body: SingleChildScrollView(
+        reverse: false,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              const SizedBox(height: 100),
+              Center(child: Image.asset("assets/otp_img.png")),
+              const SizedBox(height: 40),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Enter OTP",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 10),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text("Enter the 4 digits verification code sent to \nyour email."),
-            ),
-            const SizedBox(height: 30),
-            Row(
-              children: [
-                _buildOtpField(_otpController1),
-                const SizedBox(width: 10),
-                _buildOtpField(_otpController2),
-                const SizedBox(width: 10),
-                _buildOtpField(_otpController3),
-                const SizedBox(width: 10),
-                _buildOtpField(_otpController4),
-              ],
-            ),
-            const SizedBox(height: 20),
-            const Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Resend code in 00:25sec",
-                style: TextStyle(color: Colors.black26),
+              const SizedBox(height: 10),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text("Enter the 4 digits verification code sent to \nyour email."),
               ),
-            ),
-            const SizedBox(height: 30),
-            LongCustomButton(
-              title: "Submit",
-              backgroundColor: const Color(0xFF0F26A6),
-              foregroundColor: Colors.white,
-              onPressed: _submitOtp,
-            ),
-          ],
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  _buildOtpField(_otpController1),
+                  const SizedBox(width: 10),
+                  _buildOtpField(_otpController2),
+                  const SizedBox(width: 10),
+                  _buildOtpField(_otpController3),
+                  const SizedBox(width: 10),
+                  _buildOtpField(_otpController4),
+                ],
+              ),
+              const SizedBox(height: 20),
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Resend code in 00:25sec",
+                  style: TextStyle(color: Colors.black26),
+                ),
+              ),
+              const SizedBox(height: 30),
+              LongCustomButton(
+                title: "Submit",
+                backgroundColor: const Color(0xFF0F26A6),
+                foregroundColor: Colors.white,
+                onPressed: _submitOtp,
+              ),
+            ],
+          ),
         ),
       ),
     );
