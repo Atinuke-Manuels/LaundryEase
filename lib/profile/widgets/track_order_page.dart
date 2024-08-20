@@ -31,7 +31,7 @@ class _TrackOrderPageState extends State<TrackOrderPage> {
             Container(
               padding: EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: const Color(0xFF1A43BF),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Column(

@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:laundry_ease_upgrade/profile/widgets/track_order_page.dart';
 import 'dart:async';
 import 'common/theme.dart';
 
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
             future: Future.delayed(const Duration(seconds: 3)),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                return TrackOrderPage();
+                return const Onboarding();
               } else {
                 return Container(
                   color: Colors.white,
