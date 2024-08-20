@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:laundry_ease_upgrade/profile/widgets/profile_item.dart';
 import 'package:laundry_ease_upgrade/profile/widgets/show_logout_dialogue.dart';
+import 'package:laundry_ease_upgrade/profile/widgets/track_order_page.dart';
 
 import '../../common/long_custom_button.dart';
 import '../../gen/assets.gen.dart';
@@ -113,7 +114,14 @@ class ProfilePageDesktopTablet extends StatelessWidget {
                             Icons.check_circle_outline,
                             size: 20,
                           ),
-                          onTap: () {}),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => TrackOrderPage(),
+                              ),
+                            );
+                          }),
                       ProfileItem(
                           title: "Account Info",
                           icon: const Icon(

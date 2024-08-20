@@ -6,6 +6,7 @@ import 'package:laundry_ease_upgrade/login/screens/login.dart';
 import 'package:laundry_ease_upgrade/profile/widgets/account_info_mobile.dart';
 import 'package:laundry_ease_upgrade/profile/widgets/profile_item.dart';
 import 'package:laundry_ease_upgrade/profile/widgets/show_logout_dialogue.dart';
+import 'package:laundry_ease_upgrade/profile/widgets/track_order_page.dart';
 
 import '../../gen/assets.gen.dart';
 
@@ -120,7 +121,14 @@ class ProfilePageMobile extends StatelessWidget {
                         Icons.check_circle_outline,
                         size: 20,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TrackOrderPage(),
+                          ),
+                        );
+                      },
                     ),
                     ProfileItem(
                       title: "Account Info",
