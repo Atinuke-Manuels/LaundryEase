@@ -59,6 +59,7 @@ flutter:
     - assets/images/cart-images/
     - assets/profile/
     - assets/svg_images/
+    - assets/payment_images/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

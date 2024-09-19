@@ -33,7 +33,7 @@ class _LoginMobileScreenState extends State<LoginMobileScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text(
